@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Price Prediction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+      form {
+        margin-top: 20px;
+      }
+      input[type="number"] {
+        width: 100px;
+        padding: 8px;
+        margin: 5px;
+      }
+      input[type="submit"] {
+        padding: 8px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .prediction {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Stock Price Prediction</h1>
+    <form action="/predict" method="post">
+      <label for="open">Open Price:</label>
+      <input type="number" id="open" name="open" step="0.01" required /><br />
+      <label for="high">High Price:</label>
+      <input type="number" id="high" name="high" step="0.01" required /><br />
+      <label for="low">Low Price:</label>
+      <input type="number" id="low" name="low" step="0.01" required /><br />
+      <input type="submit" value="Predict" />
+    </form>
+    {% if prediction %}
+    <div class="prediction">
+      <h2>{{ prediction }}</h2>
+    </div>
+    {% endif %}
+  </body>
+</html>
